@@ -1,0 +1,53 @@
+@model CarManagment.Models.Vehicle
+
+@{
+    ViewData["Title"] = "Добавление транспортного средства";
+}
+
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 flex justify-center items-start min-h-[60vh]">
+    <div class="glass-card max-w-xl w-full p-8 rounded-2xl shadow-lg">
+        <h1 class="text-2xl sm:text-3xl font-bold text-blue-600 mb-8">Добавление транспортного средства</h1>
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-red-500 mb-4"></div>
+
+            <div class="mb-6">
+                <label asp-for="Brand" class="block text-gray-700 font-medium mb-2">Марка</label>
+                <input asp-for="Brand" class="form-input w-full rounded-lg border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200" required />
+                <span asp-validation-for="Brand" class="text-red-500 text-sm"></span>
+            </div>
+
+            <div class="mb-6">
+                <label asp-for="Model" class="block text-gray-700 font-medium mb-2">Модель</label>
+                <input asp-for="Model" class="form-input w-full rounded-lg border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200" required />
+                <span asp-validation-for="Model" class="text-red-500 text-sm"></span>
+            </div>
+
+            <div class="mb-6">
+                <label asp-for="Year" class="block text-gray-700 font-medium mb-2">Год выпуска</label>
+                <input asp-for="Year" class="form-input w-full rounded-lg border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200" type="number" min="1900" max="@(DateTime.Now.Year + 1)" required />
+                <span asp-validation-for="Year" class="text-red-500 text-sm"></span>
+            </div>
+
+            <div class="mb-6">
+                <label asp-for="LicensePlate" class="block text-gray-700 font-medium mb-2">Государственный номер</label>
+                <input asp-for="LicensePlate" class="form-input w-full rounded-lg border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200" required />
+                <span asp-validation-for="LicensePlate" class="text-red-500 text-sm"></span>
+            </div>
+
+            <div class="mb-6">
+                <label asp-for="VIN" class="block text-gray-700 font-medium mb-2">VIN-код</label>
+                <input asp-for="VIN" class="form-input w-full rounded-lg border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200" required />
+                <span asp-validation-for="VIN" class="text-red-500 text-sm"></span>
+            </div>
+
+            <div class="flex space-x-4">
+                <button type="submit" class="btn-blue font-medium px-6 py-3 text-base">Добавить</button>
+                <a asp-action="Index" class="btn-gray font-medium px-6 py-3 text-base">Отмена</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+} 

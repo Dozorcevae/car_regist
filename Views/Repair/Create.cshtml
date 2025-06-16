@@ -1,0 +1,114 @@
+@model CarManagment.Models.Repair
+
+@{
+    ViewData["Title"] = "Создание заказа";
+}
+
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 flex justify-center items-start min-h-[60vh]">
+    <div class="glass-card max-w-2xl w-full p-8 rounded-2xl shadow-lg">
+        <h1 class="text-2xl sm:text-3xl font-bold text-blue-600 mb-8">Создание заказа на ремонт</h1>
+        <form asp-action="Create" id="repairForm">
+            <div asp-validation-summary="ModelOnly" class="text-red-500 mb-4"></div>
+
+            <div class="mb-6">
+                <label asp-for="VehicleId" class="block text-gray-700 font-medium mb-2">Транспортное средство</label>
+                <select asp-for="VehicleId" class="form-select w-full rounded-lg border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200" required>
+                    <option value="">Выберите транспортное средство</option>
+                    @foreach (var vehicle in ViewBag.Vehicles)
+                    {
+                        <option value="@vehicle.Id">@vehicle.Brand @vehicle.Model (@vehicle.LicensePlate)</option>
+                    }
+                </select>
+                <span asp-validation-for="VehicleId" class="text-red-500 text-sm"></span>
+            </div>
+
+            <div class="mb-6">
+                <label asp-for="ScheduledDate" class="block text-gray-700 font-medium mb-2">Запланированная дата</label>
+                <input asp-for="ScheduledDate" class="form-input w-full rounded-lg border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200" type="datetime-local" required />
+                <span asp-validation-for="ScheduledDate" class="text-red-500 text-sm"></span>
+            </div>
+
+            <div class="mb-6">
+                <label class="block text-gray-700 font-medium mb-2">Типы работ</label>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    @foreach (var workType in ViewBag.WorkTypes)
+                    {
+                        <div class="flex items-start bg-gray-50 rounded-lg p-3 work-type-block">
+                            <input class="work-type-checkbox mt-1 accent-blue-600 mr-4" type="checkbox" name="workTypeIds" value="@workType.Id" data-cost="@workType.Cost" data-duration="@workType.DurationMin">
+                            <label class="flex-1">
+                                <span class="font-semibold">@workType.Name</span>
+                                <small class="block text-gray-500 mt-1">Стоимость: @workType.Cost.ToString("C") | Длительность: @workType.DurationMin мин.</small>
+                            </label>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="mb-6">
+                <label asp-for="Notes" class="block text-gray-700 font-medium mb-2">Примечания</label>
+                <textarea asp-for="Notes" class="form-input w-full rounded-lg border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200" rows="3"></textarea>
+                <span asp-validation-for="Notes" class="text-red-500 text-sm"></span>
+            </div>
+
+            <div class="bg-blue-50 rounded-lg p-4 flex flex-col sm:flex-row justify-between items-center mb-6">
+                <div class="mb-2 sm:mb-0">
+                    <span class="font-semibold text-gray-700">Общая стоимость:</span>
+                    <span id="totalCost" class="text-blue-600 font-bold">0 ₽</span>
+                </div>
+                <div>
+                    <span class="font-semibold text-gray-700">Общая длительность:</span>
+                    <span id="totalDuration" class="text-blue-600 font-bold">0 мин.</span>
+                </div>
+            </div>
+
+            <div class="flex space-x-4">
+                <button type="submit" class="btn-blue font-medium px-6 py-3 text-base">Создать заказ</button>
+                <a asp-action="Index" class="btn-gray font-medium px-6 py-3 text-base">Отмена</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(document).ready(function() {
+            function updateTotals() {
+                let totalCost = 0;
+                let totalDuration = 0;
+
+                $('.work-type-checkbox:checked').each(function() {
+                    totalCost += parseFloat($(this).data('cost').toString().replace(',', '.'));
+                    totalDuration += parseInt($(this).data('duration'));
+                });
+
+                $('#totalCost').text(totalCost.toLocaleString('ru-RU', {
+                    style: 'currency',
+                    currency: 'RUB'
+                }));
+                $('#totalDuration').text(totalDuration + ' мин.');
+            }
+
+            $('.work-type-checkbox').change(updateTotals);
+
+            function updateBlockSelection() {
+                $('.work-type-block').each(function() {
+                    var checkbox = $(this).find('.work-type-checkbox');
+                    if (checkbox.is(':checked')) {
+                        $(this).addClass('selected');
+                    } else {
+                        $(this).removeClass('selected');
+                    }
+                });
+            }
+            $('.work-type-checkbox').on('change', updateBlockSelection);
+            updateBlockSelection();
+            $('.work-type-block').on('click', function(e) {
+                if (e.target.tagName !== 'INPUT') {
+                    var checkbox = $(this).find('.work-type-checkbox');
+                    checkbox.prop('checked', !checkbox.prop('checked')).trigger('change');
+                }
+            });
+        });
+    </script>
+} 

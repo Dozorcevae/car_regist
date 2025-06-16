@@ -1,0 +1,35 @@
+@model ErrorViewModel
+@{
+    ViewData["Title"] = "Ошибка";
+}
+
+<div class="min-h-screen flex items-center justify-center px-4">
+    <div class="modern-card p-8 max-w-lg w-full text-center">
+        <h1 class="text-4xl font-bold text-gradient mb-4">
+            Ошибка
+        </h1>
+        <p class="text-gray-600 mb-6">
+            @(Model?.Message ?? "Произошла ошибка при обработке вашего запроса.")
+        </p>
+        @if (Model?.ShowRequestId ?? false)
+        {
+            <p class="text-sm text-gray-500 mb-6">
+                Request ID: <code>@Model.RequestId</code>
+            </p>
+        }
+        <a href="/" class="btn-modern inline-block">
+            Вернуться на главную
+        </a>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        gsap.from(".modern-card", {
+            scale: 0.9,
+            opacity: 0,
+            duration: 1,
+            ease: "power2.out"
+        });
+    </script>
+} 

@@ -1,0 +1,300 @@
+@{
+    ViewData["Title"] = "Главная";
+}
+
+<div class="fixed inset-0 bg-black bg-opacity-10 z-0"></div>
+
+<div class="hero-bg min-h-screen flex flex-col relative z-0">
+    <div class="fixed inset-0 pointer-events-none z-0">
+        <div class="particle" style="left: 15%; width: 3px; height: 3px; animation-delay: 0s;"></div>
+        <div class="particle" style="left: 35%; width: 2px; height: 2px; animation-delay: 3s;"></div>
+        <div class="particle" style="left: 55%; width: 3px; height: 3px; animation-delay: 6s;"></div>
+        <div class="particle" style="left: 75%; width: 2px; height: 2px; animation-delay: 9s;"></div>
+    </div>
+
+    <div class="relative z-10 flex-1 flex flex-col">
+        <section class="flex-1 flex items-center justify-center">
+            <div class="relative z-10 max-w-5xl mx-auto text-center px-4">
+                <div class="glass-card p-8">
+                    <h1 class="text-4xl sm:text-6xl font-bold text-white mb-4">
+                        Car<span class="text-yellow-300">Management</span>
+                    </h1>
+                    <p class="text-lg sm:text-xl text-white mb-6 max-w-2xl mx-auto">
+                        Революционная платформа для управления автопарком с ИИ-аналитикой
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                        <a href="/Cars/Create" class="btn-modern text-white font-medium px-6 py-3 text-base"
+                           aria-label="Начать бесплатно">
+                            Начать бесплатно
+                            <svg class="w-4 h-4 ml-1 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                            </svg>
+                        </a>
+                        <a href="/Cars"
+                           class="bg-white bg-opacity-10 text-white font-medium px-6 py-3 rounded-lg text-base hover:bg-opacity-20 transition"
+                           aria-label="Посмотреть демо">
+                            Посмотреть демо
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute top-16 left-8 floating-animation">
+                <div class="w-12 h-12 bg-white bg-opacity-10 rounded-full"></div>
+            </div>
+            <div class="absolute bottom-16 right-8 floating-animation" style="animation-delay: 1.5s;">
+                <div class="w-10 h-10 bg-white bg-opacity-10 rounded-full"></div>
+            </div>
+        </section>
+
+        <section class="py-16 px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-gradient mb-4">
+                        Управляйте будущим
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        Интеллектуальная экосистема для вашего автопарка
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="modern-card p-6">
+                        <div class="flex items-start mb-4">
+                            <div
+                                class="w-6 h-6 bg-gradient-to-br from-blue-500 to-purple-600 rounded-md flex items-center justify-center mr-3">
+                                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                          d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900">Умный автопарк</h3>
+                                <div class="w-10 h-0.5 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full"></div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            ИИ-мониторинг, предиктивная аналитика, уведомления о техобслуживании
+                        </p>
+                        <a href="/Cars" class="btn-modern text-white font-medium px-5 py-2 text-sm"
+                           aria-label="Управлять парком">
+                            Управлять парком
+                        </a>
+                    </div>
+                    <div class="modern-card p-6">
+                        <div class="flex items-start mb-4">
+                            <div
+                                class="w-6 h-6 bg-gradient-to-br from-orange-500 to-red-600 rounded-md flex items-center justify-center mr-3">
+                                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                          d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.826 2.37a1.724"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                          d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900">Сервис 4.0</h3>
+                                <div class="w-10 h-0.5 bg-gradient-to-r from-orange-500 to-red-600 rounded-full"></div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Планирование ремонтов, трекинг, интеграция с сервисами
+                        </p>
+                        <a href="/Repair" class="btn-modern text-white font-medium px-5 py-2 text-sm"
+                           aria-label="Создать заказ">
+                            Создать заказ
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-12 bg-gray-900">
+            <div class="max-w-5xl mx-auto px-4">
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+                    <div>
+                        <div class="text-3xl font-bold text-white mb-1">2.5K+</div>
+                        <div class="text-gray-400 text-sm">Пользователей</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-white mb-1">98%</div>
+                        <div class="text-gray-400 text-sm">Точность</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-white mb-1">45%</div>
+                        <div class="text-gray-400 text-sm">Экономия</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-white mb-1">24/7</div>
+                        <div class="text-gray-400 text-sm">Поддержка</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+        document.addEventListener('DOMContentLoaded', () => {
+            gsap.utils.toArray('.modern-card').forEach((el, i) => {
+                gsap.from(el, {
+                    y: 40,
+                    opacity: 0,
+                    duration: 0.8,
+                    delay: i * 0.1,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: el,
+                        start: "top 80%",
+                        toggleActions: "play none reverse"
+                    }
+                });
+            });
+            gsap.from(".glass-card", {
+                scale: 0.9,
+                opacity: 0,
+                duration: 1,
+                ease: "power2.out"
+            });
+        });
+    </script>
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+            box-sizing: border-box;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 1.5rem;
+        }
+
+        .modern-card {
+            background: #ffffff;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 1.5rem;
+        }
+
+        .modern-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-modern {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .btn-modern::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-modern:hover::before {
+            left: 100%;
+        }
+
+        .btn-modern:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-bg {
+            background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb);
+            background-size: 300%;
+            animation: gradient 12s ease infinite;
+        }
+
+        @@keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: particle-float 15s linear infinite;
+        }
+
+        @@keyframes particle-float {
+            0% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+        }
+
+        .floating-animation {
+            animation: float 5s ease-in-out infinite;
+        }
+
+        @@keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        @@media (max-width: 640px) {
+            .glass-card {
+                padding: 2rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .btn-modern {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.875rem;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+}
